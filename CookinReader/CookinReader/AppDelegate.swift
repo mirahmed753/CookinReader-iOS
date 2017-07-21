@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let navBarColor = #colorLiteral(red: 0.3137254902, green: 0.8235294118, blue: 0.7607843137, alpha: 1)
+        
+        UINavigationBar.appearance().backgroundColor = navBarColor
+
         return true
     }
 
