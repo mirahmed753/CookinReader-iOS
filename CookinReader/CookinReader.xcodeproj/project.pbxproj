@@ -12,6 +12,12 @@
 		49F57E431F212683004C82DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E411F212683004C82DB /* Main.storyboard */; };
 		49F57E451F212683004C82DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E441F212683004C82DB /* Assets.xcassets */; };
 		49F57E481F212683004C82DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E461F212683004C82DB /* LaunchScreen.storyboard */; };
+		49F57E501F263477004C82DB /* RecipeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E4F1F263477004C82DB /* RecipeHeaderView.xib */; };
+		49F57E521F2634AD004C82DB /* RecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E511F2634AD004C82DB /* RecipeHeaderView.swift */; };
+		49F57E541F2649AE004C82DB /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E531F2649AE004C82DB /* RecipeViewController.swift */; };
+		49F57E561F264C01004C82DB /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E551F264C01004C82DB /* Recipe.swift */; };
+		49F57E5E1F278888004C82DB /* RecipesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */; };
+		49F57E601F2788DE004C82DB /* FakeRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		49F57E441F212683004C82DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49F57E471F212683004C82DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49F57E491F212683004C82DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49F57E4F1F263477004C82DB /* RecipeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeHeaderView.xib; sourceTree = "<group>"; };
+		49F57E511F2634AD004C82DB /* RecipeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeHeaderView.swift; sourceTree = "<group>"; };
+		49F57E531F2649AE004C82DB /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		49F57E551F264C01004C82DB /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewController.swift; sourceTree = "<group>"; };
+		49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeRecipeService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +67,51 @@
 			isa = PBXGroup;
 			children = (
 				49F57E3D1F212683004C82DB /* AppDelegate.swift */,
-				49F57E3F1F212683004C82DB /* ViewController.swift */,
 				49F57E411F212683004C82DB /* Main.storyboard */,
+				49F57E581F264C8B004C82DB /* View Controllers */,
+				49F57E571F264C7A004C82DB /* Models */,
+				49F57E5C1F278641004C82DB /* Services */,
+				49F57E4F1F263477004C82DB /* RecipeHeaderView.xib */,
+				49F57E511F2634AD004C82DB /* RecipeHeaderView.swift */,
 				49F57E441F212683004C82DB /* Assets.xcassets */,
+				49F57E5B1F278621004C82DB /* Supporting Files */,
+			);
+			path = CookinReader;
+			sourceTree = "<group>";
+		};
+		49F57E571F264C7A004C82DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49F57E551F264C01004C82DB /* Recipe.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		49F57E581F264C8B004C82DB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49F57E3F1F212683004C82DB /* ViewController.swift */,
+				49F57E531F2649AE004C82DB /* RecipeViewController.swift */,
+				49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49F57E5B1F278621004C82DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				49F57E461F212683004C82DB /* LaunchScreen.storyboard */,
 				49F57E491F212683004C82DB /* Info.plist */,
 			);
-			path = CookinReader;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49F57E5C1F278641004C82DB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F57E481F212683004C82DB /* LaunchScreen.storyboard in Resources */,
+				49F57E501F263477004C82DB /* RecipeHeaderView.xib in Resources */,
 				49F57E451F212683004C82DB /* Assets.xcassets in Resources */,
 				49F57E431F212683004C82DB /* Main.storyboard in Resources */,
 			);
@@ -137,8 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F57E5E1F278888004C82DB /* RecipesCollectionViewController.swift in Sources */,
+				49F57E521F2634AD004C82DB /* RecipeHeaderView.swift in Sources */,
 				49F57E401F212683004C82DB /* ViewController.swift in Sources */,
+				49F57E601F2788DE004C82DB /* FakeRecipeService.swift in Sources */,
 				49F57E3E1F212683004C82DB /* AppDelegate.swift in Sources */,
+				49F57E541F2649AE004C82DB /* RecipeViewController.swift in Sources */,
+				49F57E561F264C01004C82DB /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +358,7 @@
 				49F57E4E1F212683004C82DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

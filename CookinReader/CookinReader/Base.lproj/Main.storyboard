@@ -12,11 +12,11 @@
         <!--Recipes-->
         <scene sceneID="mm5-yR-IYb">
             <objects>
-                <collectionViewController id="cel-vO-8do" sceneMemberID="viewController">
+                <collectionViewController id="cel-vO-8do" customClass="RecipesCollectionViewController" customModule="CookinReader" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="F6f-xQ-oiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.88" alpha="0.96010809075342463" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BRd-O6-CQG">
                             <size key="itemSize" width="182" height="201"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,16 +54,18 @@
         <!--Cookin' Reader-->
         <scene sceneID="qA4-Jp-OgR">
             <objects>
-                <tableViewController id="pp5-Y3-xlg" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="zUv-9U-oNb">
+                <tableViewController id="pp5-Y3-xlg" customClass="RecipeViewController" customModule="CookinReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zUv-9U-oNb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.90186256170000001" green="0.90201735500000002" blue="0.9018527865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Ingredients" id="aEe-Q5-p2j">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7C4-4l-lde">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7C4-4l-lde" id="FnY-Ud-8mQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -75,7 +77,7 @@
                             <tableViewSection headerTitle="Steps" id="cHx-dK-5UK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3Rf-zo-W8v">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Rf-zo-W8v" id="2lV-CH-qYS">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -83,7 +85,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rLe-8L-ZXf">
-                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rLe-8L-ZXf" id="awk-7s-ZZH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -108,9 +110,15 @@
         <scene sceneID="gWD-u9-PRa">
             <objects>
                 <navigationController id="SA0-P3-tNX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XzV-Dk-IVf">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" id="XzV-Dk-IVf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.31372549019607843" green="0.82352941176470584" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="cel-vO-8do" kind="relationship" relationship="rootViewController" id="QvK-vi-xVK"/>
