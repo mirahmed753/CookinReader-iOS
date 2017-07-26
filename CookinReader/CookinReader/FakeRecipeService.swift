@@ -6,21 +6,22 @@
 //  Copyright © 2017 None. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class FakeRecipeService {
+    static var recipeList: [Recipe] = [Recipe]()
+    
     class func createFakeRecipes() -> [Recipe] {
-        var recipeList: [Recipe] = [Recipe]()
+        var ingredients1: [String] = [String]()
+        ingredients1.append("Tortilla")
+        ingredients1.append("Chicken")
         
-        let recipe1 = Recipe(name: "Pasta", imageRef: "pastaImage");
+        var steps1: [String] = [String]()
+        steps1.append("Cut the Chicken into strips")
+        steps1.append("Put the Chicken into the Tortilla")
+        
+        let recipe1 = Recipe(name: "Chicken Quesadilla", imageRef: "someRef", ingredients: ingredients1, steps: steps1);
         recipeList.append(recipe1)
-        
-        let recipe2 = Recipe(name: "Grilled Chicken", imageRef: "chickenImage")
-        recipeList.append(recipe2)
-        
-        let recipe3 = Recipe(name: "Brown Rice", imageRef: "riceImage")
-        recipeList.append(recipe3)
-        
         return recipeList
     }
 }

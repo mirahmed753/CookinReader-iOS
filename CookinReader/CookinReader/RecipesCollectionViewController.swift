@@ -9,21 +9,39 @@
 import UIKit
 
 class RecipesCollectionViewController: UICollectionViewController {
-    var recipes: [Recipe]!
     
-    override func collectionView(collectionView: UICollectionView!,
-                                 cellForItemAtIndexPath indexPath: NSIndexPath!) ->
-        UICollectionViewCell! {
-            
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as CollectionViewCell
-            
-            // Configure the cell
-            cell.backgroundColor = UIColor.blackColor()
-            cell.textLabel?.text = "\(indexPath.section):\(indexPath.row)"
-            cell.imageView?.image = UIImage(named: "circle")
-            
-            
-            
-            return cell
+    var recipes: [Recipe] = FakeRecipeService.createFakeRecipes()
+    var selectedRecipe: Recipe?
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return recipes.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+        
+        cell.recipeImageView.image = #imageLiteral(resourceName: "chickenQuesadilla")
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedRecipe = recipes[indexPath.row]
+        performSegue(withIdentifier: "EditRecipe", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        
+        guard let nextVC = segue.destination as? RecipeViewController else {
+            return
+        }
+        
+        nextVC.recipe = selectedRecipe!
+    }
+    
 }

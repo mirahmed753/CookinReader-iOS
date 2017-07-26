@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Recipe {
+class Recipe {
     var name: String
     var imageRef: String
-//    var ingredients: [String]
-//    var steps: [String]
+    var ingredients: [String]
+    var steps: [String]
+    
+    init(name: String, imageRef: String, ingredients: [String], steps: [String]) {
+        self.name = name
+        self.imageRef = imageRef
+        self.ingredients = ingredients
+        self.steps = steps 
+    }
 }
