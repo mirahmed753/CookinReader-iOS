@@ -21,6 +21,7 @@ class RecipesCollectionViewController: UICollectionViewController {
         return recipes.count
     }
     
+    // set the image
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as! RecipeCell
         
@@ -34,6 +35,7 @@ class RecipesCollectionViewController: UICollectionViewController {
         performSegue(withIdentifier: "EditRecipe", sender: self)
     }
     
+    // prepare data for next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         
@@ -42,6 +44,6 @@ class RecipesCollectionViewController: UICollectionViewController {
         }
         
         nextVC.recipe = selectedRecipe!
+        nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
     }
-    
 }
