@@ -1,19 +1,15 @@
 //
-//  RecipeHeaderView.swift
+//  StepsSectionHeaderView.swift
 //  CookinReader
 //
-//  Created by Mir Ahmed on 7/24/17.
+//  Created by Mir Ahmed on 7/28/17.
 //  Copyright © 2017 None. All rights reserved.
 //
 
 import UIKit
 
-class RecipeHeaderView: UIView {
-    
-    @IBOutlet weak var recipeImage: UIImageView!
-    @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var recipeDescription: UILabel!
-    
+class StepsSectionHeaderView: UILabel {
+    @IBOutlet weak var stepsHeaderLabel: UILabel!
     
     // MARK: - Initializers
     

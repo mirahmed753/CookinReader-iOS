@@ -11,7 +11,7 @@ import UIKit
 class RecipeViewController: UITableViewController {
     
     var recipe: Recipe!
-    
+
     private enum RecipeSection: Int {
         case ingredients
         case steps
@@ -25,18 +25,16 @@ class RecipeViewController: UITableViewController {
     // create tableView methods
     private func setupTableView() {
         // create frame 
-        let frame = CGRect(x: 0, y: 0, width: 375, height: 300)
+        let screenWidth = UIScreen.main.bounds.width
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
         
-        // create instance of RecipeHeaderView
+        // create instance of RecipeHeaderView to set up table header
         let headerView = RecipeHeaderView(frame: frame)
-        headerView.recipeImage.image = #imageLiteral(resourceName: "chickenQuesadilla")
-        headerView.recipeName.text = "Quesadilla"
+        headerView.recipeImage.image = recipe.imageRef
+        headerView.recipeName.text = recipe.name
         headerView.recipeDescription.text = "Some Description"
         
-        // set as header
         tableView.tableHeaderView = headerView
-//        recipeList = FakeRecipeService.createFakeRecipes()
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,25 +86,31 @@ class RecipeViewController: UITableViewController {
         }
     }
     
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        if section == 1 {
-//            return recipe.ingredients.count
-//        } else {
-//            
-//        }
-//        
-//        
-//        
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//    }
-//    
+    // create headers for section views
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let screenWidth = UIScreen.main.bounds.width
+        
+        guard let recipeSection = RecipeSection(rawValue: section) else {
+            fatalError()
+        }
+        
+        switch recipeSection {
+            
+        case .ingredients:
+            let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
+            let sectionView = IngredientsSectionHeaderView(frame: frame)
+            sectionView.ingredientsHeaderLabel.text = "   Ingredients"
+            return sectionView
+            
+        case .steps:
+            let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
+            let sectionView = StepsSectionHeaderView(frame: frame)
+            sectionView.stepsHeaderLabel.text = "   Steps"
+            return sectionView
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(50)
+    }
 }

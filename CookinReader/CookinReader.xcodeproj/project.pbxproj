@@ -11,6 +11,9 @@
 		49107CB51F2A559E003BE3C2 /* RecipeStepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CB41F2A559E003BE3C2 /* RecipeStepsCell.swift */; };
 		49107CB71F2A55B0003BE3C2 /* RecipeIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CB61F2A55B0003BE3C2 /* RecipeIngredientsCell.swift */; };
 		49107CBB1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49107CBA1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib */; };
+		49107CBD1F2B760F003BE3C2 /* IngredientsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CBC1F2B760F003BE3C2 /* IngredientsSectionHeaderView.swift */; };
+		49107CBF1F2B8910003BE3C2 /* StepsSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49107CBE1F2B8910003BE3C2 /* StepsSectionHeaderView.xib */; };
+		49107CC11F2B8925003BE3C2 /* StepsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CC01F2B8925003BE3C2 /* StepsSectionHeaderView.swift */; };
 		49F57E3E1F212683004C82DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E3D1F212683004C82DB /* AppDelegate.swift */; };
 		49F57E431F212683004C82DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E411F212683004C82DB /* Main.storyboard */; };
 		49F57E451F212683004C82DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E441F212683004C82DB /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		49107CB41F2A559E003BE3C2 /* RecipeStepsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStepsCell.swift; path = CookinReader/RecipeStepsCell.swift; sourceTree = "<group>"; };
 		49107CB61F2A55B0003BE3C2 /* RecipeIngredientsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeIngredientsCell.swift; path = CookinReader/RecipeIngredientsCell.swift; sourceTree = "<group>"; };
 		49107CBA1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IngredientsSectionHeaderView.xib; sourceTree = "<group>"; };
+		49107CBC1F2B760F003BE3C2 /* IngredientsSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsSectionHeaderView.swift; sourceTree = "<group>"; };
+		49107CBE1F2B8910003BE3C2 /* StepsSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepsSectionHeaderView.xib; sourceTree = "<group>"; };
+		49107CC01F2B8925003BE3C2 /* StepsSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsSectionHeaderView.swift; sourceTree = "<group>"; };
 		49F57E3A1F212683004C82DB /* CookinReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookinReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F57E3D1F212683004C82DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F57E421F212683004C82DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +70,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		49107CC21F2B8D2A003BE3C2 /* Nib Files */ = {
+			isa = PBXGroup;
+			children = (
+				49F57E4F1F263477004C82DB /* RecipeHeaderView.xib */,
+				49F57E511F2634AD004C82DB /* RecipeHeaderView.swift */,
+				49107CBA1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib */,
+				49107CBC1F2B760F003BE3C2 /* IngredientsSectionHeaderView.swift */,
+				49107CBE1F2B8910003BE3C2 /* StepsSectionHeaderView.xib */,
+				49107CC01F2B8925003BE3C2 /* StepsSectionHeaderView.swift */,
+			);
+			name = "Nib Files";
+			sourceTree = "<group>";
+		};
 		49F57E311F212683004C82DB = {
 			isa = PBXGroup;
 			children = (
@@ -89,9 +108,7 @@
 				49F57E581F264C8B004C82DB /* View Controllers */,
 				49F57E571F264C7A004C82DB /* Models */,
 				49F57E5C1F278641004C82DB /* Services */,
-				49F57E4F1F263477004C82DB /* RecipeHeaderView.xib */,
-				49F57E511F2634AD004C82DB /* RecipeHeaderView.swift */,
-				49107CBA1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib */,
+				49107CC21F2B8D2A003BE3C2 /* Nib Files */,
 				49F57E441F212683004C82DB /* Assets.xcassets */,
 				49F57E5B1F278621004C82DB /* Supporting Files */,
 			);
@@ -195,6 +212,7 @@
 				49107CBB1F2A8058003BE3C2 /* IngredientsSectionHeaderView.xib in Resources */,
 				49F57E481F212683004C82DB /* LaunchScreen.storyboard in Resources */,
 				49F57E501F263477004C82DB /* RecipeHeaderView.xib in Resources */,
+				49107CBF1F2B8910003BE3C2 /* StepsSectionHeaderView.xib in Resources */,
 				49F57E451F212683004C82DB /* Assets.xcassets in Resources */,
 				49F57E431F212683004C82DB /* Main.storyboard in Resources */,
 			);
@@ -208,11 +226,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F57E5E1F278888004C82DB /* RecipesCollectionViewController.swift in Sources */,
+				49107CC11F2B8925003BE3C2 /* StepsSectionHeaderView.swift in Sources */,
 				49F57E521F2634AD004C82DB /* RecipeHeaderView.swift in Sources */,
 				49F57E601F2788DE004C82DB /* FakeRecipeService.swift in Sources */,
 				49107CB21F2913E5003BE3C2 /* RecipeCell.swift in Sources */,
 				49F57E3E1F212683004C82DB /* AppDelegate.swift in Sources */,
 				49F57E541F2649AE004C82DB /* RecipeViewController.swift in Sources */,
+				49107CBD1F2B760F003BE3C2 /* IngredientsSectionHeaderView.swift in Sources */,
 				49107CB71F2A55B0003BE3C2 /* RecipeIngredientsCell.swift in Sources */,
 				49F57E561F264C01004C82DB /* Recipe.swift in Sources */,
 				49107CB51F2A559E003BE3C2 /* RecipeStepsCell.swift in Sources */,

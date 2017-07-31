@@ -6,15 +6,15 @@
 //  Copyright © 2017 None. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Recipe {
     var name: String
-    var imageRef: String
+    var imageRef: UIImage
     var ingredients: [String]
     var steps: [String]
     
-    init(name: String, imageRef: String, ingredients: [String], steps: [String]) {
+    init(name: String, imageRef: UIImage, ingredients: [String], steps: [String]) {
         self.name = name
         self.imageRef = imageRef
         self.ingredients = ingredients

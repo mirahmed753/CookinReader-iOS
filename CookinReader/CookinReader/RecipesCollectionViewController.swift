@@ -25,7 +25,8 @@ class RecipesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as! RecipeCell
         
-        cell.recipeImageView.image = #imageLiteral(resourceName: "chickenQuesadilla")
+        //cell.recipeImageView.image = #imageLiteral(resourceName: "chickenQuesadilla")
+        cell.recipeImageView.image = recipes[indexPath.item].imageRef
         
         return cell
     }
@@ -47,3 +48,22 @@ class RecipesCollectionViewController: UICollectionViewController {
         nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
