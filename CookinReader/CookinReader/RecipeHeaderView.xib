@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeHeaderView" customModule="CookinReader" customModuleProvider="target">
             <connections>
-                <outlet property="recipeDescription" destination="Qbm-ux-aUt" id="RAx-Af-fKZ"/>
                 <outlet property="recipeImage" destination="qnJ-2r-XGX" id="q8O-bc-h9m"/>
                 <outlet property="recipeName" destination="ilt-l1-WQ8" id="3ci-y8-wdS"/>
             </connections>
@@ -21,14 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-l1-WQ8">
-                    <rect key="frame" x="165" y="226" width="45" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbm-ux-aUt">
-                    <rect key="frame" x="142" y="255" width="88" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-l1-WQ8">
+                    <rect key="frame" x="164.5" y="226" width="45" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,9 +39,7 @@
                 <constraint firstItem="qnJ-2r-XGX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hue-3d-muA"/>
                 <constraint firstItem="qnJ-2r-XGX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="Os2-ok-odn"/>
                 <constraint firstItem="ilt-l1-WQ8" firstAttribute="top" secondItem="qnJ-2r-XGX" secondAttribute="bottom" constant="15" id="Sv1-Is-0Sp"/>
-                <constraint firstItem="qnJ-2r-XGX" firstAttribute="centerX" secondItem="Qbm-ux-aUt" secondAttribute="centerX" constant="1" id="dZ7-fG-uWH"/>
                 <constraint firstItem="qnJ-2r-XGX" firstAttribute="centerX" secondItem="ilt-l1-WQ8" secondAttribute="centerX" id="ehW-Th-1SR"/>
-                <constraint firstItem="Qbm-ux-aUt" firstAttribute="top" secondItem="ilt-l1-WQ8" secondAttribute="bottom" constant="8.5" id="v6l-Lv-CAL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

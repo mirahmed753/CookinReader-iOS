@@ -32,7 +32,7 @@ class RecipeViewController: UITableViewController {
         let headerView = RecipeHeaderView(frame: frame)
         headerView.recipeImage.image = recipe.imageRef
         headerView.recipeName.text = recipe.name
-        headerView.recipeDescription.text = "Some Description"
+//        headerView.recipeDescription.text = "Some Description"
         
         tableView.tableHeaderView = headerView
     }

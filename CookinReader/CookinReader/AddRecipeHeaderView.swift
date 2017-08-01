@@ -1,18 +1,15 @@
 //
-//  RecipeHeaderView.swift
+//  AddRecipeHeaderView.swift
 //  CookinReader
 //
-//  Created by Mir Ahmed on 7/24/17.
+//  Created by Mir Ahmed on 8/1/17.
 //  Copyright © 2017 None. All rights reserved.
 //
 
 import UIKit
 
-class RecipeHeaderView: UIView {
-    
-    @IBOutlet weak var recipeImage: UIImageView!
-    @IBOutlet weak var recipeName: UILabel!
-//    @IBOutlet weak var recipeDescription: UILabel!
+class AddRecipeHeaderView: UIView {
+    @IBOutlet weak var recipeNameTextField: UITextField!
     
     
     // MARK: - Initializers
