@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddRecipeHeaderView: UIView {
+class AddRecipeHeaderView: UIView, UIImagePickerControllerDelegate, NibLoading {
     @IBOutlet weak var recipeNameTextField: UITextField!
     
     
@@ -16,6 +16,7 @@ class AddRecipeHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupView()
     }
     
@@ -24,30 +25,4 @@ class AddRecipeHeaderView: UIView {
         setupView()
     }
     
-    // MARK: - Private Helper Methods
-    
-    // Performs the initial setup.
-    private func setupView() {
-        let view = viewFromNibForClass()
-        view.frame = bounds
-        
-        // Auto-layout stuff.
-        view.autoresizingMask = [
-            UIViewAutoresizing.flexibleWidth,
-            UIViewAutoresizing.flexibleHeight
-        ]
-        
-        // Show the view.
-        addSubview(view)
-    }
-    
-    // Loads a XIB file into a view and returns this view.
-    private func viewFromNibForClass() -> UIView {
-        
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        
-        return view
-    }
 }

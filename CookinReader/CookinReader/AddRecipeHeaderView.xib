@@ -19,30 +19,38 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6cG-jV-wbT">
-                    <rect key="frame" x="87" y="11" width="200" height="200"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHz-oz-Py0">
+                    <rect key="frame" x="87" y="11" width="200" height="189"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="SOo-QV-F0V"/>
-                        <constraint firstAttribute="height" constant="200" id="qVF-wa-9yG"/>
+                        <constraint firstAttribute="height" constant="189" id="Bek-mV-Qcn"/>
+                        <constraint firstAttribute="width" constant="200" id="ZUW-85-MtC"/>
                     </constraints>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-qW-VYM">
-                    <rect key="frame" x="94" y="219" width="193" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cameraIcon"/>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-qW-VYM">
+                    <rect key="frame" x="87" y="240" width="200" height="23"/>
                     <color key="backgroundColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Klj-m4-hqX"/>
+                    </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6cG-jV-wbT" firstAttribute="top" secondItem="crb-eE-uO1" secondAttribute="top" constant="11" id="c6D-HH-DKU"/>
-                <constraint firstItem="6cG-jV-wbT" firstAttribute="centerX" secondItem="crb-eE-uO1" secondAttribute="centerX" id="maG-Ac-dHe"/>
+                <constraint firstItem="FHz-oz-Py0" firstAttribute="top" secondItem="crb-eE-uO1" secondAttribute="top" constant="11" id="De0-JN-PCa"/>
+                <constraint firstItem="cYh-qW-VYM" firstAttribute="top" secondItem="FHz-oz-Py0" secondAttribute="bottom" constant="40" id="PPn-Ph-sy4"/>
+                <constraint firstItem="FHz-oz-Py0" firstAttribute="trailing" secondItem="cYh-qW-VYM" secondAttribute="trailing" id="izc-7R-jOg"/>
+                <constraint firstItem="FHz-oz-Py0" firstAttribute="centerX" secondItem="crb-eE-uO1" secondAttribute="centerX" id="kAR-4N-D3i"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-192.5" y="-115"/>
         </view>
     </objects>
+    <resources>
+        <image name="cameraIcon" width="1024" height="1024"/>
+    </resources>
 </document>

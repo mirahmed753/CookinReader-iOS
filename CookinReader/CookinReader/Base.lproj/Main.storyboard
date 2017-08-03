@@ -79,14 +79,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGb-GS-oFx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGb-GS-oFx">
                                             <rect key="frame" x="8" y="-0.5" width="359" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="LGb-GS-oFx" secondAttribute="bottom" id="2Yt-dE-IPx"/>
+                                        <constraint firstItem="LGb-GS-oFx" firstAttribute="top" secondItem="PR7-Yu-iu0" secondAttribute="top" id="guf-ld-dAZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="LGb-GS-oFx" secondAttribute="trailing" constant="8" id="pu3-ci-vGL"/>
+                                        <constraint firstItem="LGb-GS-oFx" firstAttribute="leading" secondItem="PR7-Yu-iu0" secondAttribute="leading" constant="8" id="wLm-ew-0XR"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="H5y-tY-a6r">
@@ -96,14 +101,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11m-UC-ILz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11m-UC-ILz">
                                             <rect key="frame" x="8" y="-0.5" width="359" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="11m-UC-ILz" secondAttribute="trailing" constant="8" id="bAg-V9-zlP"/>
+                                        <constraint firstAttribute="bottom" secondItem="11m-UC-ILz" secondAttribute="bottom" id="bDN-U9-uck"/>
+                                        <constraint firstItem="11m-UC-ILz" firstAttribute="top" secondItem="jxa-X7-FWh" secondAttribute="top" id="dey-0t-GNf"/>
+                                        <constraint firstItem="11m-UC-ILz" firstAttribute="leading" secondItem="jxa-X7-FWh" secondAttribute="leading" constant="8" id="np6-eP-GAp"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
