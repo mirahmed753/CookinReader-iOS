@@ -9,6 +9,5 @@
 import UIKit
 
 class RecipeIngredientsCell: UITableViewCell {
-    @IBOutlet weak var ingredientsLabel: UILabel!
-    
+    @IBOutlet weak var ingredientsTextView: UITextView!
 }

@@ -8,33 +8,42 @@
 
 import UIKit
 
+enum RecipeViewMode {
+    case viewMode
+    case editMode(isNewRecipe: Bool)
+}
+
 class RecipeViewController: UITableViewController {
     
     var recipe: Recipe!
-
+    var mode: RecipeViewMode!
+    
     private enum RecipeSection: Int {
         case ingredients
         case steps
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupTableView()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // show header based on recipe
+        if recipe != nil {
+            setupTableView()
+        }
+        else {
+            setupEmptyTableView()
+            
+            var emptyIngredients: [String] = [String]()
+            var emptySteps: [String] = [String]()
+            
+            recipe.ingredients = emptyIngredients
+            recipe.steps = emptySteps
+            mode = RecipeViewMode.editMode(isNewRecipe: true)
+        }
     }
     
-    // create tableView methods
-    private func setupTableView() {
-        // create frame 
-        let screenWidth = UIScreen.main.bounds.width
-        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
-        
-        // create instance of RecipeHeaderView to set up table header
-        let headerView = RecipeHeaderView(frame: frame)
-        headerView.recipeImage.image = recipe.imageRef
-        headerView.recipeName.text = recipe.name
-//        headerView.recipeDescription.text = "Some Description"
-        
-        tableView.tableHeaderView = headerView
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,6 +55,7 @@ class RecipeViewController: UITableViewController {
         guard let recipeSection = RecipeSection(rawValue: section) else {
             fatalError()
         }
+        
         
         switch recipeSection {
         
@@ -71,7 +81,7 @@ class RecipeViewController: UITableViewController {
                 fatalError()
             }
             
-            cell.ingredientsLabel?.text = recipe.ingredients[indexPath.row]
+            cell.ingredientsTextView?.text = recipe.ingredients[indexPath.row]
             return cell
             
         case .steps:
@@ -80,10 +90,38 @@ class RecipeViewController: UITableViewController {
                 fatalError()
             }
             
-            cell.stepsLabel?.text = recipe.steps[indexPath.row]
+            cell.stepsTextView?.text = recipe.steps[indexPath.row]
             return cell
 
         }
+    }
+    
+// ----------------------------------------------------------------------------------------------------------------------
+// CREATE HEADERS FOR SCREEN AND SECTIONS
+    
+    // create tableView methods
+    private func setupTableView() {
+        // create frame
+        let screenWidth = UIScreen.main.bounds.width
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
+        
+        // create instance of RecipeHeaderView to set up table header
+        let headerView = RecipeHeaderView(frame: frame)
+        headerView.recipeImage.image = recipe.imageRef
+        headerView.recipeName.text = recipe.name
+        
+        tableView.tableHeaderView = headerView
+    }
+    
+    private func setupEmptyTableView() {
+        // create frame
+        let screenWidth = UIScreen.main.bounds.width
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
+        
+        // create instance of AddRecipeHeaderView to set up table header
+        let headerView = AddRecipeHeaderView(frame: frame)
+        
+        tableView.tableHeaderView = headerView
     }
     
     // create headers for section views

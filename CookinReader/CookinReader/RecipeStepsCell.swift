@@ -9,5 +9,5 @@
 import UIKit
 
 class RecipeStepsCell: UITableViewCell {
-    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var stepsTextView: UITextView!
 }

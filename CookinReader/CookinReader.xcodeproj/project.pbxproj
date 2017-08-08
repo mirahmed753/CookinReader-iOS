@@ -15,7 +15,6 @@
 		49107CBF1F2B8910003BE3C2 /* StepsSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49107CBE1F2B8910003BE3C2 /* StepsSectionHeaderView.xib */; };
 		49107CC11F2B8925003BE3C2 /* StepsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CC01F2B8925003BE3C2 /* StepsSectionHeaderView.swift */; };
 		49107CC41F2FC580003BE3C2 /* SectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49107CC31F2FC580003BE3C2 /* SectionFooterView.xib */; };
-		49107CC61F30CB48003BE3C2 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CC51F30CB48003BE3C2 /* AddRecipeViewController.swift */; };
 		49107CC81F30D54E003BE3C2 /* AddRecipeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49107CC71F30D54E003BE3C2 /* AddRecipeHeaderView.xib */; };
 		49107CCA1F30F01C003BE3C2 /* AddRecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CC91F30F01C003BE3C2 /* AddRecipeHeaderView.swift */; };
 		49107CCC1F322485003BE3C2 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107CCB1F322485003BE3C2 /* SectionFooterView.swift */; };
@@ -41,7 +40,6 @@
 		49107CBE1F2B8910003BE3C2 /* StepsSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StepsSectionHeaderView.xib; sourceTree = "<group>"; };
 		49107CC01F2B8925003BE3C2 /* StepsSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsSectionHeaderView.swift; sourceTree = "<group>"; };
 		49107CC31F2FC580003BE3C2 /* SectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionFooterView.xib; sourceTree = "<group>"; };
-		49107CC51F30CB48003BE3C2 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		49107CC71F30D54E003BE3C2 /* AddRecipeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddRecipeHeaderView.xib; sourceTree = "<group>"; };
 		49107CC91F30F01C003BE3C2 /* AddRecipeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeHeaderView.swift; sourceTree = "<group>"; };
 		49107CCB1F322485003BE3C2 /* SectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			children = (
 				49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */,
 				49F57E531F2649AE004C82DB /* RecipeViewController.swift */,
-				49107CC51F30CB48003BE3C2 /* AddRecipeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49107CC61F30CB48003BE3C2 /* AddRecipeViewController.swift in Sources */,
 				49F57E5E1F278888004C82DB /* RecipesCollectionViewController.swift in Sources */,
 				49107CC11F2B8925003BE3C2 /* StepsSectionHeaderView.swift in Sources */,
 				49F57E521F2634AD004C82DB /* RecipeHeaderView.swift in Sources */,
