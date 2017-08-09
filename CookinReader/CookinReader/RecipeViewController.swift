@@ -13,15 +13,15 @@ enum RecipeViewMode {
     case editMode(isNewRecipe: Bool)
 }
 
+enum RecipeSection: Int {
+    case ingredients
+    case steps
+}
+
 class RecipeViewController: UITableViewController {
     
     var recipe: Recipe!
     var mode: RecipeViewMode!
-    
-    private enum RecipeSection: Int {
-        case ingredients
-        case steps
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,13 +32,6 @@ class RecipeViewController: UITableViewController {
         }
         else {
             setupEmptyTableView()
-            
-            var emptyIngredients: [String] = [String]()
-            var emptySteps: [String] = [String]()
-            
-            recipe.ingredients = emptyIngredients
-            recipe.steps = emptySteps
-            mode = RecipeViewMode.editMode(isNewRecipe: true)
         }
     }
     
@@ -58,10 +51,10 @@ class RecipeViewController: UITableViewController {
         
         
         switch recipeSection {
-        
+            
         case .ingredients:
             return recipe.ingredients.count
-        
+            
         case .steps:
             return recipe.steps.count
         }
@@ -92,12 +85,84 @@ class RecipeViewController: UITableViewController {
             
             cell.stepsTextView?.text = recipe.steps[indexPath.row]
             return cell
-
+            
         }
     }
     
-// ----------------------------------------------------------------------------------------------------------------------
-// CREATE HEADERS FOR SCREEN AND SECTIONS
+    fileprivate func alertController(for section: RecipeSection) -> UIAlertController {
+        
+        var title = "Add your "
+        
+        switch  section {
+        case .ingredients:
+            title += "ingredient"
+            
+        case .steps:
+            title += "step"
+        }
+        
+        let alertController = UIAlertController(title: title,
+                                                message: nil,
+                                                preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            
+            switch section {
+                
+            case .ingredients:
+                textField.placeholder = "Ingredient Name"
+                
+            case .steps:
+                textField.placeholder = "Step Name"
+                
+            }
+            
+        }
+        
+        let okAction = UIAlertAction(title: "OK",
+                                     style: .default) { (action) in
+                                        
+            let text = alertController.textFields?[0].text
+                                        
+            switch section
+            {
+                
+                case .ingredients:
+                    self.recipe.ingredients.append(text!)
+//                    self.tableView.insertRows(at: [IndexPath(row: self.recipe.ingredients.count - 1,section: section.rawValue)], with: UITableViewRowAnimation.automatic)
+                
+                                    
+                case .steps:
+                    self.recipe.steps.append(text!)
+//                    self.tableView.insertRows(at: [IndexPath(row: self.recipe.steps.count - 1, section: section.rawValue)], with: UITableViewRowAnimation.automatic)
+            }
+            self.tableView.reloadData()
+                    
+        }
+        
+        alertController.addAction(okAction)
+        return alertController
+    }
+    
+    // prepare function
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "save" {
+                
+                let recipesVC = segue.destination as! RecipesCollectionViewController
+                recipesVC.recipes.append(recipe)
+                
+                print("Save button tapped")
+            }
+            
+            
+            
+        }
+    }
+    
+
+    // ----------------------------------------------------------------------------------------------------------------------
+    // CREATE HEADERS FOR SCREEN AND SECTIONS
     
     // create tableView methods
     private func setupTableView() {
@@ -150,5 +215,31 @@ class RecipeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(50)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let screenWidth = UIScreen.main.bounds.width
+        
+        guard let recipeSection = RecipeSection(rawValue: section) else {
+            fatalError()
+        }
+        
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
+        let sectionView = SectionFooterView(frame: frame)
+        sectionView.section = recipeSection
+        sectionView.delegate = self
+        return sectionView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat(50)
+    }
+}
+
+extension RecipeViewController: SectionFooterViewDelegate {
+    func willAddItemFor(section: RecipeSection) {
+        let alert = alertController(for: section)
+        present(alert, animated: true, completion: nil)
     }
 }

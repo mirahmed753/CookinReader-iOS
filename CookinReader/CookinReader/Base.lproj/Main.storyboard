@@ -13,7 +13,7 @@
         <scene sceneID="mm5-yR-IYb">
             <objects>
                 <collectionViewController id="cel-vO-8do" customClass="RecipesCollectionViewController" customModule="CookinReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F6f-xQ-oiQ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="F6f-xQ-oiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-P6-bAA">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-P6-bAA" userLabel="ingredientsTextView">
                                             <rect key="frame" x="8" y="-0.5" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +101,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Steps" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-mj-ACl">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-mj-ACl" userLabel="stepsTextView">
                                             <rect key="frame" x="8" y="0.0" width="359" height="43.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -126,11 +126,18 @@
                             <outlet property="delegate" destination="pp5-Y3-xlg" id="CJ5-Nn-0di"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn"/>
+                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hrv-Ww-LzT">
+                            <connections>
+                                <segue destination="n2V-MC-bbA" kind="unwind" identifier="save" unwindAction="unwindToRecipesCollectionViewController:" id="z6H-q0-dZf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLP-tv-tn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="n2V-MC-bbA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1936.8" y="169.56521739130437"/>
+            <point key="canvasLocation" x="2050" y="170"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gWD-u9-PRa">
@@ -156,6 +163,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="syK-VR-tlk"/>
+        <segue reference="Gja-qH-brI"/>
     </inferredMetricsTieBreakers>
 </document>

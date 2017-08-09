@@ -10,12 +10,18 @@ import UIKit
 
 class RecipesCollectionViewController: UICollectionViewController {
     
-    private enum RecipeSegue: String {
-        case addRecipe
-        case displayRecipe
+//    private enum RecipeSegue: String {
+//        case addRecipe
+//        case displayRecipe
+//    }
+    
+    var recipes = [Recipe]() {
+        didSet {
+            collectionView?.reloadData()
+        }
     }
     
-    var recipes: [Recipe] = FakeRecipeService.createFakeRecipes()
+//    var recipes: [Recipe] = FakeRecipeService.createFakeRecipes()
     var selectedRecipe: Recipe?
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -30,10 +36,13 @@ class RecipesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as! RecipeCell
         
-        //cell.recipeImageView.image = #imageLiteral(resourceName: "chickenQuesadilla")
-        cell.recipeImageView.image = recipes[indexPath.item].imageRef
-//        cell.recipeImageView.layer.cornerRadius = 20
-//        cell.recipeImageView.clipsToBounds = true
+        let recipe = recipes[indexPath.item]
+        
+        if let recipeImage = recipe.imageRef {
+            cell.recipeImageView.image = recipeImage
+        } else {
+            cell.recipeImageView.image = #imageLiteral(resourceName: "cameraIcon")
+        }
         
         return cell
     }
@@ -58,83 +67,29 @@ class RecipesCollectionViewController: UICollectionViewController {
             if identifier == "displayRecipe"
             {
                 print("Collection view cell tapped")
+                //nextVC.mode = RecipeViewMode.editMode(isNewRecipe: false)
                 nextVC.recipe = selectedRecipe!
             }
             else if identifier == "addRecipe"
             {
                 print("+ button tapped")
                 nextVC.mode = RecipeViewMode.editMode(isNewRecipe: true)
+                
+                let emptyIngredients: [String] = [String]()
+                let emptySteps: [String] = [String]()
+                let emptyRecipe = Recipe(name: "", imageRef: #imageLiteral(resourceName: "cameraIcon"), ingredients: emptyIngredients, steps: emptySteps)
+                
+                nextVC.recipe = emptyRecipe
             }
         }
     }
+    
+    // unwind segue 
+    @IBAction func unwindToRecipesCollectionViewController(_ segue: UIStoryboardSegue) {
+        
+        // for now, simply defining the method is sufficient.
+        // we'll add code later
+        
+    }
+    
 }
-
-
-
-
-
-//
-//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    super.prepare(for: segue, sender: self)
-//    
-//    guard let nextVC = segue.destination as? RecipeViewController
-//        //            ,
-//        //              let identifierString = segue.identifier,
-//        //              let recipeSegue = RecipeSegue(rawValue: identifierString)
-//        else {
-//            return
-//    }
-//    
-//    //        nextVC.recipe = selectedRecipe!
-//    //        nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
-//    
-//    if let identifier = segue.identifier {
-//        if identifier == "displayRecipe" {
-//            print("Table view cell tapped")
-//            
-//            //                // 1
-//            //                let indexPath = tableView.indexPathForSelectedRow!
-//            //                // 2
-//            //                let note = notes[indexPath.row]
-//            //                // 3
-//            //                let displayNoteViewController = segue.destination as! DisplayNoteViewController
-//            //                // 4
-//            //                displayNoteViewController.note = note
-//            
-//        } else if identifier == "addRecipe" {
-//            print("+ button tapped")
-//        }
-//    }
-//    
-//    
-//    //        switch recipeSegue {
-//    //
-//    //        case .addRecipe:
-//    //            nextVC.mode = RecipeViewMode.editMode(isNewRecipe: true)
-//    //            nextVC.recipe = selectedRecipe!
-//    //            nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
-//    //
-//    //        case .editRecipe:
-//    //            nextVC.recipe = selectedRecipe!
-//    //            nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
-//    //
-//    //        default:
-//    //            nextVC.recipe = selectedRecipe!
-//    //            nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
-//    //        }
-//    //        
-//    //        //nextVC.recipe.ingredients = (selectedRecipe?.ingredients)!
-//}
-//}
-
-
-
-
-
-
-
-
-
-
-
-

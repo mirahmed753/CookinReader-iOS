@@ -6,33 +6,33 @@
 //  Copyright © 2017 None. All rights reserved.
 //
 
-//import UIKit
-//
-//protocol SectionFooterViewDelegate:class {
-//    func willAddItemFor(section: RecipeSection)
-//}
-//
-//class SectionFooterView: UIButton, NibLoading {
-//    @IBOutlet weak var addButton: UIButton!
-//    
-//    weak var delegate: SectionFooterViewDelegate!
-//    
-//    var section: RecipeSection!
-//    
-//    // MARK: - Initializers
-//    
-//    @IBAction func plusButtonWasPressed(sender: UIButton) {
-//        delegate.willAddItemFor(section: section)
-//    }
-//    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupView()
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        setupView()
-//    }
-//    
-//}
+import UIKit
+
+protocol SectionFooterViewDelegate:class {
+    func willAddItemFor(section: RecipeSection)
+}
+
+class SectionFooterView: UIButton, NibLoading {
+    @IBOutlet weak var addButton: UIButton!
+    
+    weak var delegate: SectionFooterViewDelegate!
+    
+    var section: RecipeSection!
+    
+    // MARK: - Initializers
+    
+    @IBAction func plusButtonWasPressed(sender: UIButton) {
+        delegate.willAddItemFor(section: section)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupView()
+    }
+    
+}

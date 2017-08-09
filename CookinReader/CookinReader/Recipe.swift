@@ -10,7 +10,7 @@ import UIKit
 
 class Recipe {
     var name: String
-    var imageRef: UIImage
+    var imageRef: UIImage?
     var ingredients: [String]
     var steps: [String]
     
