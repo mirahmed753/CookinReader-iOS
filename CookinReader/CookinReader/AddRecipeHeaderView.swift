@@ -8,9 +8,25 @@
 
 import UIKit
 
-class AddRecipeHeaderView: UIView, UIImagePickerControllerDelegate, NibLoading {
+protocol AddRecipeHeaderViewDelegate:class {
+    func getRecipeName(recipeName: String)
+    func setRecipeImage() 
+}
+
+class AddRecipeHeaderView: UIView, UIImagePickerControllerDelegate, NibLoading, UITextFieldDelegate {
     @IBOutlet weak var recipeNameTextField: UITextField!
+    @IBOutlet weak var addRecipeImageButton: UIButton!
     
+    weak var delegate: AddRecipeHeaderViewDelegate!
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let recipeName = textField.text else { return }
+        delegate.getRecipeName(recipeName: recipeName)
+    }
+    
+    @IBAction func addImageButtonPressed(_ sender: UIButton) {
+        delegate.setRecipeImage()
+    }
     
     // MARK: - Initializers
     
@@ -18,7 +34,13 @@ class AddRecipeHeaderView: UIView, UIImagePickerControllerDelegate, NibLoading {
         super.init(frame: frame)
         
         setupView()
+        //setupImageInButton()
     }
+    
+//    private func setupImageInButton() {
+//        addRecipeImageButton.imageView?.image = #imageLiteral(resourceName: "addIcon")
+//        addRecipeImageButton.layer.cornerRadius = 35
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

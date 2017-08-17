@@ -7,11 +7,8 @@
 //
 
 import UIKit
-
-enum RecipeViewMode {
-    case viewMode
-    case editMode(isNewRecipe: Bool)
-}
+import RealmSwift
+import AVFoundation
 
 enum RecipeSection: Int {
     case ingredients
@@ -20,35 +17,26 @@ enum RecipeSection: Int {
 
 class RecipeViewController: UITableViewController {
     
+    // variable recipe is the one chosen from the collection cell
     var recipe: Recipe!
-    var mode: RecipeViewMode!
+    let photoHelper = RecipePhotoHelper()
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(true)
         
-        // show header based on recipe
-        if recipe != nil {
-            setupTableView()
-        }
-        else {
-            setupEmptyTableView()
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        setupTableView()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
+    // based on the section title, return the number of elements in that section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let recipeSection = RecipeSection(rawValue: section) else {
             fatalError()
         }
-        
         
         switch recipeSection {
             
@@ -60,6 +48,7 @@ class RecipeViewController: UITableViewController {
         }
     }
     
+    // set the contents of the section's cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let recipeSection = RecipeSection(rawValue: indexPath.section) else {
@@ -74,7 +63,7 @@ class RecipeViewController: UITableViewController {
                 fatalError()
             }
             
-            cell.ingredientsTextView?.text = recipe.ingredients[indexPath.row]
+            cell.ingredientsTextView?.text = recipe.ingredients[indexPath.row].ingredient
             return cell
             
         case .steps:
@@ -83,12 +72,13 @@ class RecipeViewController: UITableViewController {
                 fatalError()
             }
             
-            cell.stepsTextView?.text = recipe.steps[indexPath.row]
+            cell.stepsTextView?.text = recipe.steps[indexPath.row].step
             return cell
             
         }
     }
     
+    // present user with an alert to type their desired ingredient/step
     fileprivate func alertController(for section: RecipeSection) -> UIAlertController {
         
         var title = "Add your "
@@ -128,13 +118,13 @@ class RecipeViewController: UITableViewController {
             {
                 
                 case .ingredients:
-                    self.recipe.ingredients.append(text!)
-//                    self.tableView.insertRows(at: [IndexPath(row: self.recipe.ingredients.count - 1,section: section.rawValue)], with: UITableViewRowAnimation.automatic)
+                    let ingredient = Ingredient(ingredient: text!)
+                    RealmHelper.addIngredient(recipe: self.recipe, newIngredient: ingredient)
                 
                                     
                 case .steps:
-                    self.recipe.steps.append(text!)
-//                    self.tableView.insertRows(at: [IndexPath(row: self.recipe.steps.count - 1, section: section.rawValue)], with: UITableViewRowAnimation.automatic)
+                    let step = Step(step: text!)
+                    RealmHelper.addStep(recipe: self.recipe, newStep: step)
             }
             self.tableView.reloadData()
                     
@@ -144,23 +134,14 @@ class RecipeViewController: UITableViewController {
         return alertController
     }
     
-    // prepare function
+    // prepare function: add the recipe to the list of recipes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "save" {
-                
-                let recipesVC = segue.destination as! RecipesCollectionViewController
-                recipesVC.recipes.append(recipe)
-                
-                print("Save button tapped")
-            }
-            
-            
-            
-        }
+        let recipeCollectionViewController = segue.destination as! RecipesCollectionViewController
+        
+        RealmHelper.addRecipe(recipe: recipe)
+        recipeCollectionViewController.recipes = RealmHelper.retrieveRecipes()
     }
     
-
     // ----------------------------------------------------------------------------------------------------------------------
     // CREATE HEADERS FOR SCREEN AND SECTIONS
     
@@ -170,22 +151,16 @@ class RecipeViewController: UITableViewController {
         let screenWidth = UIScreen.main.bounds.width
         let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
         
-        // create instance of RecipeHeaderView to set up table header
-        let headerView = RecipeHeaderView(frame: frame)
-        headerView.recipeImage.image = recipe.imageRef
-        headerView.recipeName.text = recipe.name
-        
-        tableView.tableHeaderView = headerView
-    }
-    
-    private func setupEmptyTableView() {
-        // create frame
-        let screenWidth = UIScreen.main.bounds.width
-        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 300)
-        
         // create instance of AddRecipeHeaderView to set up table header
         let headerView = AddRecipeHeaderView(frame: frame)
         
+        photoHelper.completionHandler = { image in
+            print("handle image")
+        }
+        
+        headerView.delegate = self
+        headerView.addRecipeImageButton.setImage(RecipePhotoHelper.loadPhotoFor(recipe: recipe), for: .normal)
+        headerView.recipeNameTextField.text = recipe.name
         tableView.tableHeaderView = headerView
     }
     
@@ -203,12 +178,14 @@ class RecipeViewController: UITableViewController {
             let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
             let sectionView = IngredientsSectionHeaderView(frame: frame)
             sectionView.ingredientsHeaderLabel.text = "   Ingredients"
+            sectionView.delegate = self
             return sectionView
             
         case .steps:
             let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
             let sectionView = StepsSectionHeaderView(frame: frame)
             sectionView.stepsHeaderLabel.text = "   Steps"
+            sectionView.delegate = self
             return sectionView
         }
     }
@@ -241,5 +218,38 @@ extension RecipeViewController: SectionFooterViewDelegate {
     func willAddItemFor(section: RecipeSection) {
         let alert = alertController(for: section)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RecipeViewController: AddRecipeHeaderViewDelegate {
+    func getRecipeName(recipeName: String) {
+        RealmHelper.modifyRecipeName(recipe: recipe, newName: recipeName)
+    }
+    
+    func setRecipeImage() {
+        
+        photoHelper.presentActionSheet(from: self) { [unowned self] (image) in
+            RecipePhotoHelper.savePhotoFor(recipe: self.recipe, photo: image)
+        }
+        
+        print("add image button tapped")
+    }
+}
+
+extension RecipeViewController: IngredientsSectionHeaderViewDelegate {
+    func readIngredient(recipe: Recipe) {
+        let count = recipe.ingredients.count
+        for i in 1..<count {
+            ReadService.readRecipe(readElement: recipe.ingredients[i].ingredient)
+        }
+    }
+}
+
+extension RecipeViewController: StepsSectionHeaderViewDelegate {
+    func readStep(recipe: Recipe) {
+        let count = recipe.steps.count
+        for i in 1..<count {
+            ReadService.readRecipe(readElement: recipe.steps[i].step)
+        }
     }
 }

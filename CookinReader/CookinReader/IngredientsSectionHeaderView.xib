@@ -12,30 +12,43 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IngredientsSectionHeaderView" customModule="CookinReader" customModuleProvider="target">
             <connections>
                 <outlet property="ingredientsHeaderLabel" destination="9X2-iK-RGV" id="T96-16-OeF"/>
+                <outlet property="playButton" destination="0VD-UJ-ced" id="J4i-wj-N1o"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="355" height="61"/>
+            <rect key="frame" x="0.0" y="0.0" width="405" height="41"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X2-iK-RGV">
-                    <rect key="frame" x="0.0" y="0.0" width="355" height="61"/>
+                    <rect key="frame" x="0.0" y="0.0" width="336" height="41"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <color key="textColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VD-UJ-ced">
+                    <rect key="frame" x="336" y="0.0" width="69" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Play"/>
+                    <connections>
+                        <action selector="playButtonWasPressed:" destination="-1" eventType="touchUpInside" id="Eq6-tP-52n"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9X2-iK-RGV" secondAttribute="bottom" id="ApC-VA-2K3"/>
-                <constraint firstAttribute="trailing" secondItem="9X2-iK-RGV" secondAttribute="trailing" id="HSE-gY-4wh"/>
+                <constraint firstAttribute="trailing" secondItem="0VD-UJ-ced" secondAttribute="trailing" id="E7U-Vl-JV0"/>
+                <constraint firstAttribute="trailing" secondItem="9X2-iK-RGV" secondAttribute="trailing" constant="69" id="HSE-gY-4wh"/>
+                <constraint firstItem="0VD-UJ-ced" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IsB-Nb-mFP"/>
+                <constraint firstItem="0VD-UJ-ced" firstAttribute="leading" secondItem="9X2-iK-RGV" secondAttribute="trailing" id="VV3-g9-1jT"/>
                 <constraint firstItem="9X2-iK-RGV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ayp-wR-z68"/>
+                <constraint firstAttribute="bottom" secondItem="0VD-UJ-ced" secondAttribute="bottom" id="eam-IQ-3tm"/>
                 <constraint firstItem="9X2-iK-RGV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rBK-0M-CDG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="53.5" y="-249.5"/>
+            <point key="canvasLocation" x="83" y="-253.5"/>
         </view>
     </objects>
 </document>

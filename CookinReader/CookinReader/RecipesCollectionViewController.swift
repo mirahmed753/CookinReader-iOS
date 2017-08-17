@@ -7,21 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RecipesCollectionViewController: UICollectionViewController {
-    
-//    private enum RecipeSegue: String {
-//        case addRecipe
-//        case displayRecipe
-//    }
-    
-    var recipes = [Recipe]() {
+
+    var recipes: Results<Recipe>! {
         didSet {
             collectionView?.reloadData()
         }
     }
     
-//    var recipes: [Recipe] = FakeRecipeService.createFakeRecipes()
+    // get all the recipes and display in collection view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        recipes = RealmHelper.retrieveRecipes()
+    }
+    
+    // create variable to maneuver selected recipe in collection view
     var selectedRecipe: Recipe?
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -32,21 +34,26 @@ class RecipesCollectionViewController: UICollectionViewController {
         return recipes.count
     }
     
-    // set the image
+    // set contents of collection cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipeCell", for: indexPath) as! RecipeCell
         
         let recipe = recipes[indexPath.item]
         
-        if let recipeImage = recipe.imageRef {
+        // set the recipe's name
+        cell.recipeName.text = recipe.name
+        
+        // set the recipe's image
+        if let recipeImage = RecipePhotoHelper.loadPhotoFor(recipe: recipe) {
             cell.recipeImageView.image = recipeImage
         } else {
-            cell.recipeImageView.image = #imageLiteral(resourceName: "cameraIcon")
+            cell.recipeImageView.image = #imageLiteral(resourceName: "addIcon")
         }
         
         return cell
     }
     
+    // segue perform method
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedRecipe = recipes[indexPath.row]
         performSegue(withIdentifier: "displayRecipe", sender: self)
@@ -67,29 +74,17 @@ class RecipesCollectionViewController: UICollectionViewController {
             if identifier == "displayRecipe"
             {
                 print("Collection view cell tapped")
-                //nextVC.mode = RecipeViewMode.editMode(isNewRecipe: false)
                 nextVC.recipe = selectedRecipe!
             }
             else if identifier == "addRecipe"
             {
                 print("+ button tapped")
-                nextVC.mode = RecipeViewMode.editMode(isNewRecipe: true)
                 
-                let emptyIngredients: [String] = [String]()
-                let emptySteps: [String] = [String]()
-                let emptyRecipe = Recipe(name: "", imageRef: #imageLiteral(resourceName: "cameraIcon"), ingredients: emptyIngredients, steps: emptySteps)
-                
+                //let emptyRecipe = Recipe(name: "", imageRef: #imageLiteral(resourceName: "cameraIcon"))
+                let emptyRecipe = Recipe(name: "")
                 nextVC.recipe = emptyRecipe
+                RealmHelper.addRecipe(recipe: emptyRecipe)
             }
         }
     }
-    
-    // unwind segue 
-    @IBAction func unwindToRecipesCollectionViewController(_ segue: UIStoryboardSegue) {
-        
-        // for now, simply defining the method is sufficient.
-        // we'll add code later
-        
-    }
-    
 }

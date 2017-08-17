@@ -8,8 +8,21 @@
 
 import UIKit
 
+protocol StepsSectionHeaderViewDelegate:class {
+    func readStep(recipe: Recipe)
+}
+
 class StepsSectionHeaderView: UILabel, NibLoading {
     @IBOutlet weak var stepsHeaderLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
+    
+    weak var delegate: StepsSectionHeaderViewDelegate!
+    var recipe: Recipe!
+    
+    
+    @IBAction func playButtonWasPressed(_ sender: UIButton) {
+        delegate.readStep(recipe: recipe)
+    }
     
     // MARK: - Initializers
     

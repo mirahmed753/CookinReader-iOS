@@ -13,7 +13,7 @@
         <scene sceneID="mm5-yR-IYb">
             <objects>
                 <collectionViewController id="cel-vO-8do" customClass="RecipesCollectionViewController" customModule="CookinReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="F6f-xQ-oiQ">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F6f-xQ-oiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,13 +32,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gEY-Re-Jia" userLabel="recipeImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="194" height="225"/>
+                                            <rect key="frame" x="15" y="20" width="152" height="155"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBo-PY-bqz" userLabel="recipeName">
+                                            <rect key="frame" x="10" y="179" width="162" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <connections>
                                     <outlet property="recipeImageView" destination="gEY-Re-Jia" id="F4i-uH-PDc"/>
+                                    <outlet property="recipeName" destination="GBo-PY-bqz" id="0WB-To-Bqq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -126,16 +134,9 @@
                             <outlet property="delegate" destination="pp5-Y3-xlg" id="CJ5-Nn-0di"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hrv-Ww-LzT">
-                            <connections>
-                                <segue destination="n2V-MC-bbA" kind="unwind" identifier="save" unwindAction="unwindToRecipesCollectionViewController:" id="z6H-q0-dZf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLP-tv-tn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="n2V-MC-bbA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2050" y="170"/>
         </scene>
@@ -163,6 +164,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gja-qH-brI"/>
+        <segue reference="syK-VR-tlk"/>
     </inferredMetricsTieBreakers>
 </document>

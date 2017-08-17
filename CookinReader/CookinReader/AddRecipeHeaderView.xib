@@ -11,46 +11,58 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRecipeHeaderView" customModule="CookinReader" customModuleProvider="target">
             <connections>
-                <outlet property="recipeNameTextField" destination="cYh-qW-VYM" id="CIV-Bm-Zdc"/>
+                <outlet property="addRecipeImageButton" destination="FHz-oz-Py0" id="KKC-RX-ucj"/>
+                <outlet property="recipeNameTextField" destination="cYh-qW-VYM" id="Qsc-51-b2v"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="crb-eE-uO1">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHz-oz-Py0">
-                    <rect key="frame" x="87" y="11" width="200" height="189"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Recipe Name" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-qW-VYM">
+                    <rect key="frame" x="61.5" y="256" width="253" height="24"/>
+                    <color key="backgroundColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="tambre"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="189" id="Bek-mV-Qcn"/>
-                        <constraint firstAttribute="width" constant="200" id="ZUW-85-MtC"/>
+                        <constraint firstAttribute="width" constant="253" id="Klj-m4-hqX"/>
                     </constraints>
-                    <state key="normal" image="cameraIcon"/>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Recipe Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYh-qW-VYM">
-                    <rect key="frame" x="87" y="240" width="200" height="23"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="pGT-Fx-Iwb"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHz-oz-Py0">
+                    <rect key="frame" x="92.5" y="14" width="190" height="228"/>
                     <color key="backgroundColor" red="0.90186256170272827" green="0.90201735496520996" blue="0.90185278654098511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="Klj-m4-hqX"/>
+                        <constraint firstAttribute="height" constant="228" id="Bek-mV-Qcn"/>
+                        <constraint firstAttribute="width" constant="190" id="ZUW-85-MtC"/>
                     </constraints>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                    <state key="normal" image="addIcon">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addImageButtonPressed:" destination="-1" eventType="touchUpInside" id="gk7-YQ-BlB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="FHz-oz-Py0" firstAttribute="top" secondItem="crb-eE-uO1" secondAttribute="top" constant="11" id="De0-JN-PCa"/>
-                <constraint firstItem="cYh-qW-VYM" firstAttribute="top" secondItem="FHz-oz-Py0" secondAttribute="bottom" constant="40" id="PPn-Ph-sy4"/>
-                <constraint firstItem="FHz-oz-Py0" firstAttribute="trailing" secondItem="cYh-qW-VYM" secondAttribute="trailing" id="izc-7R-jOg"/>
+                <constraint firstItem="FHz-oz-Py0" firstAttribute="top" secondItem="crb-eE-uO1" secondAttribute="top" constant="14" id="De0-JN-PCa"/>
+                <constraint firstItem="cYh-qW-VYM" firstAttribute="top" secondItem="FHz-oz-Py0" secondAttribute="bottom" constant="14" id="PPn-Ph-sy4"/>
+                <constraint firstItem="FHz-oz-Py0" firstAttribute="trailing" secondItem="cYh-qW-VYM" secondAttribute="trailing" constant="-32" id="izc-7R-jOg"/>
                 <constraint firstItem="FHz-oz-Py0" firstAttribute="centerX" secondItem="crb-eE-uO1" secondAttribute="centerX" id="kAR-4N-D3i"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-192.5" y="-115"/>
+            <point key="canvasLocation" x="-192.5" y="-103"/>
         </view>
     </objects>
     <resources>
-        <image name="cameraIcon" width="1024" height="1024"/>
+        <image name="addIcon" width="612" height="792"/>
     </resources>
 </document>

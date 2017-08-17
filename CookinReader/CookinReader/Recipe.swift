@@ -2,22 +2,41 @@
 //  Recipe.swift
 //  CookinReader
 //
-//  Created by Mir Ahmed on 7/24/17.
+//  Created by Mir Ahmed on 8/10/17.
 //  Copyright © 2017 None. All rights reserved.
 //
 
 import UIKit
+import RealmSwift
 
-class Recipe {
-    var name: String
-    var imageRef: UIImage?
-    var ingredients: [String]
-    var steps: [String]
+class Ingredient: Object {
+    dynamic var ingredient = ""
     
-    init(name: String, imageRef: UIImage, ingredients: [String], steps: [String]) {
-        self.name = name
-        self.imageRef = imageRef
-        self.ingredients = ingredients
-        self.steps = steps 
+    convenience init(ingredient: String) {
+        self.init()
+        self.ingredient = ingredient
     }
+}
+
+class Step: Object {
+    dynamic var step = ""
+    
+    convenience init(step: String) {
+        self.init()
+        self.step = step
+    }
+}
+
+class Recipe: Object {
+    dynamic var name: String = ""
+    dynamic var uniqueID: String = ""
+    let ingredients = List<Ingredient>()
+    let steps = List<Step>()
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+        self.uniqueID = UUID().uuidString
+    }
+    
 }
