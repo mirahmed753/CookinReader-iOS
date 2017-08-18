@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StepsSectionHeaderView" customModule="CookinReader" customModuleProvider="target">
             <connections>
-                <outlet property="playButton" destination="sAB-zP-Fts" id="Fvn-6o-3Bb"/>
                 <outlet property="stepsHeaderLabel" destination="HPy-ei-zK0" id="HSd-XS-rb4"/>
             </connections>
         </placeholder>
@@ -21,30 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPy-ei-zK0" userLabel="Steps Header Label">
-                    <rect key="frame" x="0.0" y="0.0" width="354" height="41"/>
+                    <rect key="frame" x="16" y="0.0" width="389" height="41"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <color key="textColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-zP-Fts">
-                    <rect key="frame" x="354" y="0.0" width="51" height="41"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="Play"/>
-                    <connections>
-                        <action selector="playButtonWasPressed:" destination="-1" eventType="touchUpInside" id="rIJ-1Y-6Uq"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="HPy-ei-zK0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="D3V-Jz-zmh"/>
-                <constraint firstAttribute="trailing" secondItem="sAB-zP-Fts" secondAttribute="trailing" id="EOk-Be-15u"/>
-                <constraint firstAttribute="trailing" secondItem="HPy-ei-zK0" secondAttribute="trailing" constant="51" id="Hcp-oL-qnf"/>
-                <constraint firstAttribute="bottom" secondItem="sAB-zP-Fts" secondAttribute="bottom" id="JcN-4n-grT"/>
-                <constraint firstAttribute="bottom" secondItem="HPy-ei-zK0" secondAttribute="bottom" id="d5d-FC-PIA"/>
-                <constraint firstItem="sAB-zP-Fts" firstAttribute="leading" secondItem="HPy-ei-zK0" secondAttribute="trailing" id="huP-Hc-9mX"/>
-                <constraint firstItem="sAB-zP-Fts" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oPz-ao-baI"/>
-                <constraint firstItem="HPy-ei-zK0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ylk-2R-q02"/>
+                <constraint firstItem="HPy-ei-zK0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JV7-Ie-cYH"/>
+                <constraint firstAttribute="bottom" secondItem="HPy-ei-zK0" secondAttribute="bottom" id="bcv-ns-FlU"/>
+                <constraint firstAttribute="trailing" secondItem="HPy-ei-zK0" secondAttribute="trailing" id="hA7-hD-YQC"/>
+                <constraint firstItem="HPy-ei-zK0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="z9O-MF-6Vc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

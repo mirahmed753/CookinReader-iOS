@@ -8,21 +8,8 @@
 
 import UIKit
 
-protocol IngredientsSectionHeaderViewDelegate:class {
-    func readIngredient(recipe: Recipe)
-}
-
 class IngredientsSectionHeaderView: UILabel, NibLoading {
     @IBOutlet weak var ingredientsHeaderLabel: UILabel!
-    @IBOutlet weak var playButton: UIButton!
-    
-    weak var delegate: IngredientsSectionHeaderViewDelegate!
-    var recipe: Recipe!
-    
-    
-    @IBAction func playButtonWasPressed(_ sender: UIButton) {
-        delegate.readIngredient(recipe: recipe)
-    }
     
     // MARK: - Initializers
     

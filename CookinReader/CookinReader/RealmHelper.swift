@@ -45,9 +45,29 @@ class RealmHelper {
         }
     }
     
+    // delete ingredient
+    static func deleteIngredient(recipe: Recipe, ingredient: Ingredient, ingredientDeletionRow: Int) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.delete(ingredient)
+            //recipe.ingredients.remove(objectAtIndex: ingredientDeletionRow)
+        }
+    }
+    
+    // delete step
+    static func deleteStep(recipe: Recipe, step: Step, stepDeletionRow: Int) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.delete(step)
+            //recipe.steps.remove(objectAtIndex: stepDeletionRow)
+        }
+    }
+    
     // retrieve all recipes
     static func retrieveRecipes() -> Results<Recipe> {
         let realm = try! Realm()
-        return realm.objects(Recipe) //.sorted("modificationTime", ascending: false)
+        return realm.objects(Recipe)
     }
 }

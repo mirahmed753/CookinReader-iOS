@@ -134,7 +134,13 @@
                             <outlet property="delegate" destination="pp5-Y3-xlg" id="CJ5-Nn-0di"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn"/>
+                    <navigationItem key="navigationItem" title="Cookin' Reader" id="lWv-ui-evn">
+                        <barButtonItem key="rightBarButtonItem" title="Read" id="pfR-xG-9cb">
+                            <connections>
+                                <action selector="readButtonPressed:" destination="pp5-Y3-xlg" id="1bc-wd-5lg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLP-tv-tn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

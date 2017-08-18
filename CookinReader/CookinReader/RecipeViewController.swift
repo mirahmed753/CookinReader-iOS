@@ -142,6 +142,76 @@ class RecipeViewController: UITableViewController {
         recipeCollectionViewController.recipes = RealmHelper.retrieveRecipes()
     }
     
+    // deletion
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            guard let recipeSection = RecipeSection(rawValue: indexPath.section) else {
+                fatalError()
+            }
+            
+            switch recipeSection
+            {
+            case .ingredients:
+                RealmHelper.deleteIngredient(recipe: recipe, ingredient: recipe.ingredients[indexPath.row], ingredientDeletionRow: indexPath.row)
+                
+            case .steps:
+                RealmHelper.deleteStep(recipe: recipe, step: recipe.steps[indexPath.row], stepDeletionRow: indexPath.row)
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    // read the recipe
+    @IBAction func readButtonPressed(_ sender: Any) {
+        // create instance of AVSpeechSyntesizer
+        let synthesizer = AVSpeechSynthesizer()
+        
+        var utterance   = AVSpeechUtterance(string: recipe.name)
+        synthesizer.speak(utterance)
+        
+        // create speeches for Ingredients section
+        utterance = AVSpeechUtterance(string: "Ingredients")
+        synthesizer.speak(utterance)
+        
+        var count = recipe.ingredients.count
+        if(count == 0) {
+            utterance = AVSpeechUtterance(string: "No Ingredients Listed")
+            synthesizer.speak(utterance)
+        }
+        
+        for i in 0..<count {
+            let ingredientNum = "Ingredient \(i+1)"
+            
+            utterance = AVSpeechUtterance(string: ingredientNum)
+            synthesizer.speak(utterance)
+            
+            utterance = AVSpeechUtterance(string: recipe.ingredients[i].ingredient)
+            synthesizer.speak(utterance)
+        }
+        
+        
+        // create speeches for Steps section
+        utterance = AVSpeechUtterance(string: "Steps")
+        synthesizer.speak(utterance)
+        
+        count = recipe.steps.count
+        if(count == 0) {
+            utterance = AVSpeechUtterance(string: "No Steps Listed")
+            synthesizer.speak(utterance)
+        }
+        
+        for i in 0..<count {
+            let stepNum = "Step \(i+1)"
+            
+            utterance = AVSpeechUtterance(string: stepNum)
+            synthesizer.speak(utterance)
+            
+            utterance = AVSpeechUtterance(string: recipe.steps[i].step)
+            synthesizer.speak(utterance)
+        }
+    }
+    
     // ----------------------------------------------------------------------------------------------------------------------
     // CREATE HEADERS FOR SCREEN AND SECTIONS
     
@@ -177,21 +247,17 @@ class RecipeViewController: UITableViewController {
         case .ingredients:
             let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
             let sectionView = IngredientsSectionHeaderView(frame: frame)
-            sectionView.ingredientsHeaderLabel.text = "   Ingredients"
-            sectionView.delegate = self
             return sectionView
             
         case .steps:
             let frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
             let sectionView = StepsSectionHeaderView(frame: frame)
-            sectionView.stepsHeaderLabel.text = "   Steps"
-            sectionView.delegate = self
             return sectionView
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(50)
+        return CGFloat(41)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -233,23 +299,5 @@ extension RecipeViewController: AddRecipeHeaderViewDelegate {
         }
         
         print("add image button tapped")
-    }
-}
-
-extension RecipeViewController: IngredientsSectionHeaderViewDelegate {
-    func readIngredient(recipe: Recipe) {
-        let count = recipe.ingredients.count
-        for i in 1..<count {
-            ReadService.readRecipe(readElement: recipe.ingredients[i].ingredient)
-        }
-    }
-}
-
-extension RecipeViewController: StepsSectionHeaderViewDelegate {
-    func readStep(recipe: Recipe) {
-        let count = recipe.steps.count
-        for i in 1..<count {
-            ReadService.readRecipe(readElement: recipe.steps[i].step)
-        }
     }
 }
