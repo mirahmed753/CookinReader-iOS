@@ -124,6 +124,7 @@
 			children = (
 				49F57E3D1F212683004C82DB /* AppDelegate.swift */,
 				49F57E411F212683004C82DB /* Main.storyboard */,
+				49F57E461F212683004C82DB /* LaunchScreen.storyboard */,
 				49107CB31F2913EB003BE3C2 /* View */,
 				49F57E581F264C8B004C82DB /* View Controllers */,
 				49F57E571F264C7A004C82DB /* Models */,
@@ -157,7 +158,6 @@
 		49F57E5B1F278621004C82DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				49F57E461F212683004C82DB /* LaunchScreen.storyboard */,
 				49F57E491F212683004C82DB /* Info.plist */,
 			);
 			name = "Supporting Files";
