@@ -18,6 +18,14 @@ class RealmHelper {
         }
     }
     
+    // delete recipe
+    static func deleteRecipe(recipe: Recipe) {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.delete(recipe)
+        }
+    }
+    
     // modify recipe name
     static func modifyRecipeName(recipe: Recipe, newName: String) {
         let realm = try! Realm()

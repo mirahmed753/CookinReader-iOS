@@ -29,7 +29,6 @@
 		49F57E481F212683004C82DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F57E461F212683004C82DB /* LaunchScreen.storyboard */; };
 		49F57E541F2649AE004C82DB /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E531F2649AE004C82DB /* RecipeViewController.swift */; };
 		49F57E5E1F278888004C82DB /* RecipesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */; };
-		49F57E601F2788DE004C82DB /* FakeRecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */; };
 		7CFDD4F64A51783D2730C770 /* Pods_CookinReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0B18B2CCBDB5D85CFA00CF /* Pods_CookinReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		49F57E491F212683004C82DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F57E531F2649AE004C82DB /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		49F57E5D1F278888004C82DB /* RecipesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesCollectionViewController.swift; sourceTree = "<group>"; };
-		49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeRecipeService.swift; sourceTree = "<group>"; };
 		AD0B18B2CCBDB5D85CFA00CF /* Pods_CookinReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookinReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBEA36ADFE29E9D6F03EA0C9 /* Pods-CookinReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookinReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookinReader/Pods-CookinReader.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,7 +166,6 @@
 		49F57E5C1F278641004C82DB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				49F57E5F1F2788DE004C82DB /* FakeRecipeService.swift */,
 				49B39CAC1F45DC74009E954C /* ReadService.swift */,
 			);
 			name = Services;
@@ -324,7 +321,6 @@
 				49B39CAD1F45DC74009E954C /* ReadService.swift in Sources */,
 				49107CC11F2B8925003BE3C2 /* StepsSectionHeaderView.swift in Sources */,
 				49B39CA71F3E1C1A009E954C /* RecipePhotoHelper.swift in Sources */,
-				49F57E601F2788DE004C82DB /* FakeRecipeService.swift in Sources */,
 				49107CCC1F322485003BE3C2 /* SectionFooterView.swift in Sources */,
 				49107CB21F2913E5003BE3C2 /* RecipeCell.swift in Sources */,
 				49107CCA1F30F01C003BE3C2 /* AddRecipeHeaderView.swift in Sources */,

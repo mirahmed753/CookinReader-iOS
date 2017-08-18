@@ -176,7 +176,7 @@ class RecipeViewController: UITableViewController {
         
         var count = recipe.ingredients.count
         if(count == 0) {
-            utterance = AVSpeechUtterance(string: "No Ingredients Listed")
+            utterance = AVSpeechUtterance(string: "You have a recipe, but you didn't list any ingredients, what do you think you're going to make? An imaginary Sandwich?")
             synthesizer.speak(utterance)
         }
         
@@ -197,7 +197,7 @@ class RecipeViewController: UITableViewController {
         
         count = recipe.steps.count
         if(count == 0) {
-            utterance = AVSpeechUtterance(string: "No Steps Listed")
+            utterance = AVSpeechUtterance(string: "You have a recipe, but you didn't list any steps, what do you think you're going to make? An imaginary Sandwich?")
             synthesizer.speak(utterance)
         }
         
@@ -229,7 +229,12 @@ class RecipeViewController: UITableViewController {
         }
         
         headerView.delegate = self
-        headerView.addRecipeImageButton.setImage(RecipePhotoHelper.loadPhotoFor(recipe: recipe), for: .normal)
+        if let recipeImage = RecipePhotoHelper.loadPhotoFor(recipe: recipe) {
+            headerView.addRecipeImageButton.setImage(RecipePhotoHelper.loadPhotoFor(recipe: recipe), for: .normal)
+        } else {
+            headerView.addRecipeImageButton.setImage(#imageLiteral(resourceName: "addIcon"), for: .normal)
+        }
+        
         headerView.recipeNameTextField.text = recipe.name
         tableView.tableHeaderView = headerView
     }
